@@ -5,13 +5,13 @@ const app = express();
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 const UsersRouter = require("./routes/users");
 
 app.use(cors());
-app.use(cors({ origin: true, credentials: true }));
-app.options("*", cors());
+// app.use(cors({ origin: true, credentials: true }));
+// app.options("*", cors());
 app.use(express.json());
 app.use(
   express.urlencoded({
@@ -26,11 +26,11 @@ app.use("/users", UsersRouter);
 //database can be changed here !
 mongoose
   .connect(
-    "mongodb+srv://shoestringait:shoestringait@cluster0.zxhdk.mongodb.net/?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
+       "mongodb+srv://shoestringait:shoestringait@cluster0.zxhdk.mongodb.net/?retryWrites=true&w=majority",
+       {
+         useNewUrlParser: true,
+         useUnifiedTopology: true,
+       }
   )
   .then(() => {
     console.log("DATABASE IS CONNECTED");
