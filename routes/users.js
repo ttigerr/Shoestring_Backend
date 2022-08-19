@@ -24,7 +24,7 @@ var transporter = nodemailer.createTransport({
 
 // Verification function.
 const sendVerificationEmail = async ({_id,Email},res)=>{
-  const currentUrl = "http://localhost:5000/";
+  const currentUrl = "http://localhost:3000/";
   const uniqueString = uuidv4() + _id;
 
   const mailOption = {
